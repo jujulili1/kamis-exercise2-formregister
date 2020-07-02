@@ -11,7 +11,14 @@ function FormRegister() {
 
 
     function handleSubmit() {
-       alert(`Name: ${fullname} Email: ${email} Password: ${password} Address: ${address} BirthDate: ${date} Gender: ${gender} Skill: ${skill}`)
+       alert(`
+       Name: ${fullname} 
+       Email: ${email} 
+       Password: ${password} 
+       Address: ${address} 
+       BirthDate: ${date} 
+       Gender: ${gender} 
+       Skill: ${skill}`)
     }
 
     return (
