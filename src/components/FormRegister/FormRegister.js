@@ -7,18 +7,18 @@ function FormRegister() {
     const [address, setAddress] = useState('');
     const [date, setDate] = useState('');
     const [gender, setGender] = useState('');
-    const [skill, setSkill] = useState('');
+    const [skill, setSkill] = useState([]);
 
 
     function handleSubmit() {
        alert(`
-       Name: ${fullname} 
-       Email: ${email} 
-       Password: ${password} 
-       Address: ${address} 
-       BirthDate: ${date} 
-       Gender: ${gender} 
-       Skill: ${skill}`)
+       - Name: ${fullname} 
+       - Email: ${email} 
+       - Password: ${password} 
+       - Address: ${address} 
+       - BirthDate: ${date} 
+       - Gender: ${gender} 
+       - Skill: ${skill}`)
     }
 
     return (
@@ -105,24 +105,55 @@ function FormRegister() {
                         name='skill'
                         id='skill'
                         value='Coding'
-                        onChange={(event) => setSkill(event.target.value)}
+                        onChange={(event) => {
+                            if (event.target.checked){
+                                setSkill([...skill, event.target.value])
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skill) => skill !== event.target.value
+                                    )
+                                )
+                            }
+                            }}
                     />Coding
                     <input
                         type='checkbox'
                         name='skill'
                         id='skill'
                         value='Design'
-                        onChange={(event) => setSkill(event.target.value)}
+                        onChange={(event) => {
+                            if (event.target.checked){
+                                setSkill([...skill, event.target.value])
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skill) => skill !== event.target.value
+                                    )
+                                )
+                            }
+                            }}
                     />Design
                     <input
                         type='checkbox'
                         name='skill'
                         id='skill'
                         value='Gaming'
-                        onChange={(event) => setSkill(event.target.value)}
+                        onChange={(event) => {
+                            if (event.target.checked){
+                                setSkill([...skill, event.target.value])
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skill) => skill !== event.target.value
+                                    )
+                                )
+                            }
+                            }}
                     />Gaming
                 </div>
-                <input type='submit' />
+                
+                <input type='submit' value='Register'/>
             </form> 
         </div>
     )
